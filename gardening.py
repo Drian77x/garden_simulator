@@ -9,7 +9,7 @@ class Plant:
         self.harvestable = False
         
     def grow(self):
-        if self.current_grow_stage != self.growth_stages[-1]:
+        if self.current_growth_stage != self.growth_stages[-1]:
             next_stage = self.growth_stages.index(self.current_growth_stage) + 1
             self.current_growth_stage = self.growth_stages[next_stage]
             if self.current_growth_stage == "harvest_ready":
@@ -26,3 +26,30 @@ class Plant:
         else:
             print(f"{self.name} is not ready to harvest.")
             return False
+        
+class Tomato(Plant):
+    def __init__(self, harvest_yield):
+        super().__init__("Tomato", harvest_yield)
+        self.growth_stages.insert(-1, "fruiting")
+
+class Lettuce(Plant):
+    def __init__(self, harvest_yield):
+        super().__init__("Lettuce", harvest_yield)
+        
+        
+class Gardener:
+    """
+    Models a gardener who can plant, tend, and harvest plants.
+    Keeps track of planted plants and the gardener's inventory.
+    """
+    
+    plant_dict = {
+        "Tomato": Tomato,
+        "Lettuce": Lettuce
+    }
+    
+    def __init__(self, name):
+        self.name = name
+        self.planted_plants = []
+        self.inventory = {}
+
