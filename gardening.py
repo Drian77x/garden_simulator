@@ -53,3 +53,13 @@ class Gardener:
         self.planted_plants = []
         self.inventory = {}
 
+def select_item(items):
+    if type(items) == dict:
+        for x, key in enumerate(items, 1):
+            print(x, key)
+    elif type(items) == list:
+        for n, i in enumerate(items, 1):
+            print(n, i) 
+    else:
+        print("You must enter a diccionary or a list")
+        return None
