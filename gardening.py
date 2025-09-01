@@ -1,3 +1,6 @@
+"""This is 'Garden Simulator'
+   Here you choose your gardener's name and then you must forage for seeds, plant and tend them and finally harvest them to increase your inventory of plants
+"""
 import random
 
 class Plant:
